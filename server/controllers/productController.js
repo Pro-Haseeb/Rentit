@@ -4,24 +4,33 @@ import Product from '../models/Product.js';
 // ➕ Add Product
 const addProduct = async (req, res) => {
   try {
-    const { title, description, category, price, image } = req.body;
+    const { title, description, category, price } = req.body;
+
+    // multer se file aati hai req.file me
+    const imagePath = req.file ? `/uploads/${req.file.filename}` : '';
 
     const newProduct = new Product({
       title,
       description,
       category,
       price,
-      image,
+      image: imagePath,     // 👈 Store path like /uploads/xyz.jpg
       createdBy: req.user.id
     });
 
     await newProduct.save();
-    res.status(201).json({ msg: 'Product added successfully', product: newProduct });
+
+    res.status(201).json({
+      msg: 'Product added successfully',
+      product: newProduct
+    });
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ msg: 'Failed to add product', error });
   }
 };
+
 
 const getUserProducts = async (req, res) => {
   try {
