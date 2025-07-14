@@ -3,8 +3,11 @@ import Product from '../models/Product.js';
 
 // ➕ Add Product
 const addProduct = async (req, res) => {
+  // console.log("🧪 req.user:", req.user);
   try {
-    const { title, description, category, price } = req.body;
+    // console.log("🧪 req.user:", req.user);
+    const { title, description, category, price, hasOffer } = req.body;
+
 
     // multer se file aati hai req.file me
     const imagePath = req.file ? `/uploads/${req.file.filename}` : '';
@@ -12,10 +15,11 @@ const addProduct = async (req, res) => {
     const newProduct = new Product({
       title,
       description,
+      hasOffer,
       category,
       price,
       image: imagePath,     // 👈 Store path like /uploads/xyz.jpg
-      createdBy: req.user.id
+      createdBy: req.user._id
     });
 
     await newProduct.save();
@@ -34,8 +38,10 @@ const addProduct = async (req, res) => {
 
 const getUserProducts = async (req, res) => {
   try {
-    const userId = req.user.id;
-    const products = await Product.find({ createdBy: userId }).sort({ createdAt: -1 });
+    const userId = req.user._id;
+    const products = await Product.find({ createdBy: userId })
+     .populate("createdBy", "name email _id")
+     .sort({ createdAt: -1 });
     res.status(200).json({ products });
   } catch (error) {
     console.error(error);
@@ -71,4 +77,16 @@ const getAllProducts = async (req, res) => {
   }
 };
 
-export default { addProduct, getUserProducts, getAllProducts };
+// 🏷️ Get Only Products with Offers
+const getOfferProducts = async (req, res) => {
+  try {
+    const products = await Product.find({ hasOffer: true }).sort({ createdAt: -1 });
+    res.status(200).json({ products });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: 'Failed to fetch offer products', error });
+  }
+};
+
+
+export default { addProduct, getUserProducts, getAllProducts, getOfferProducts };

@@ -6,7 +6,7 @@ import authRoutes from './routes/authRoutes.js';
 import cors from 'cors';
 import productRoutes from './routes/productRoute.js';
 import path from 'path';
-import RentRequest from './routes/RentRequestRoute.js';
+import RentRequest from './routes/rentRequest.js';
 
 const app = express();
 
@@ -33,7 +33,7 @@ app.get('/api/test', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/uploads', express.static(path.join('uploads'))); // Serve static files from 'uploads' directory
 app.use('/api/products', productRoutes);
-app.use('/api/rent-request', RentRequest);
+app.use('/api/rentals', RentRequest);
 
 
 
