@@ -7,6 +7,7 @@ import cors from 'cors';
 import productRoutes from './routes/productRoute.js';
 import path from 'path';
 import RentRequest from './routes/rentRequest.js';
+import dashboardRoutes from './routes/dashboardRoutes.js';
 
 const app = express();
 
@@ -34,7 +35,7 @@ app.use('/api/auth', authRoutes);
 app.use('/uploads', express.static(path.join('uploads'))); // Serve static files from 'uploads' directory
 app.use('/api/products', productRoutes);
 app.use('/api/rentals', RentRequest);
-
+app.use('/api/dashboard', dashboardRoutes);
 
 
 const PORT = process.env.PORT || 5000;

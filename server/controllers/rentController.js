@@ -1,8 +1,8 @@
 import Rental from "../models/Rental.js";
 
 /**
- * 📨 Create Rental Request (called when a user fills Rent Now form)
- * POST /api/rentals
+  Create Rental Request (called when a user fills Rent Now form)
+  POST /api/rentals
  */
 export const createRental = async (req, res) => {
   try {
@@ -76,10 +76,20 @@ export const updateRentalStatus = async (req, res) => {
 
 export const getMyRentals = async (req, res) => {
   try {
-    const rentals = await Rental.find({ renterId: req.user._id })
+    const rentals = await Rental.find({ renterId: req.user?._id })
+  
       .populate("productId");
     res.status(200).json({ rentals });
+      console.log(req.user?._id);
   } catch (err) {
     res.status(500).json({ msg: "Failed to fetch my rentals", error: err });
   }
 };
+
+
+export const deleteRental = async (req, res) => {try {
+    await Rental.findByIdAndDelete(req.params.id);
+    res.status(200).json({ msg: 'Rental deleted successfully' });
+  } catch (err) {
+    res.status(500).json({ msg: 'Failed to delete rental', error: err });
+  }};

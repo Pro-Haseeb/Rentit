@@ -1,11 +1,11 @@
 // server/controllers/productController.js
 import Product from '../models/Product.js';
 
-// ➕ Add Product
-const addProduct = async (req, res) => {
-  // console.log("🧪 req.user:", req.user);
+// Add Product
+const addProduct = async (req, res) => {   // ya api ha  add krnay ka lia
+  // console.log("req.user:", req.user);
   try {
-    // console.log("🧪 req.user:", req.user);
+    // console.log("req.user:", req.user);
     const { title, description, category, price, hasOffer } = req.body;
 
 
@@ -18,7 +18,7 @@ const addProduct = async (req, res) => {
       hasOffer,
       category,
       price,
-      image: imagePath,     // 👈 Store path like /uploads/xyz.jpg
+      image: imagePath,     
       createdBy: req.user._id
     });
 
@@ -49,7 +49,7 @@ const getUserProducts = async (req, res) => {
   }
 };
 
-// 📄 Get All Products (with filters)
+// Get All Products (  with filters)
 const getAllProducts = async (req, res) => {
   try {
     const { search, category, minPrice, maxPrice } = req.query;
@@ -77,7 +77,7 @@ const getAllProducts = async (req, res) => {
   }
 };
 
-// 🏷️ Get Only Products with Offers
+// Get Only Products with Offers
 const getOfferProducts = async (req, res) => {
   try {
     const products = await Product.find({ hasOffer: true }).sort({ createdAt: -1 });
