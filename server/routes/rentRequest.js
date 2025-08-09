@@ -7,12 +7,15 @@ import {
   getOwnerRentals,
   updateRentalStatus,
   getMyRentals,
-  deleteRental
+  deleteRental,
+  getAllRentalsAdmin
 } from "../controllers/rentController.js";
 
 router.post("/", createRental); // Submit rental
 router.get('/owner/:ownerId', getOwnerRentals); //Owner Dashboard rentals
 router.put('/:id/status', updateRentalStatus); //Approve/Reject rental
-router.get('/my',authMiddleware, getMyRentals); //My Rentals
+router.get('/my',authMiddleware.authMiddleware, getMyRentals); //My Rentals
 router.delete('/:delete', deleteRental); //Delete rental
+router.get("/all", authMiddleware.authMiddleware, getAllRentalsAdmin); // Admin - Get all rentals
+
 export default router;

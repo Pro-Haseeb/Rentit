@@ -1,19 +1,58 @@
 import Rental from "../models/Rental.js";
 
 /**
-  Create Rental Request (called when a user fills Rent Now form)
+  ✅ Create Rental Request (called when a user fills Rent Now form)
   POST /api/rentals
- */
+*/
 export const createRental = async (req, res) => {
   try {
-    console.log("RECEIVED productId:", req.body.productId);
-console.log("RECEIVED ownerId:", req.body.ownerId);
-console.log("RECEIVED renterId:", req.body.renterId);
-    const rental = new Rental(req.body);
+    const { productId, startDate, endDate, ownerId, renterId } = req.body;
+
+    console.log("📥 RECEIVED productId:", productId);
+    console.log("📥 RECEIVED ownerId:", ownerId);
+    console.log("📥 RECEIVED renterId:", renterId);
+
+    // 🛡️ Validate date order
+    if (new Date(startDate) >= new Date(endDate)) {
+      return res.status(400).json({
+        success: false,
+        message: "Start date must be before end date.",
+      });
+    }
+
+    // 🔍 Check for date conflict
+    const conflict = await Rental.findOne({
+      productId,
+      status: { $in: ["pending", "approved"] },
+      $or: [
+        {
+          startDate: { $lte: new Date(endDate) },
+          endDate: { $gte: new Date(startDate) },
+        },
+      ],
+    });
+
+    if (conflict) {
+      return res.status(400).json({
+        success: false,
+        message: "This product is already booked for the selected dates.",
+      });
+    }
+
+    // ✅ If no conflict, proceed to create rental
+    const rental = new Rental({
+      productId,
+      ownerId,
+      renterId,
+      startDate,
+      endDate,
+    });
+
     await rental.save();
     res.status(201).json({ success: true, rental });
+
   } catch (err) {
-    console.error("Rental creation failed:", err);
+    console.error("❌ Rental creation failed:", err);
     res.status(500).json({
       success: false,
       message: "Rental creation failed",
@@ -21,7 +60,6 @@ console.log("RECEIVED renterId:", req.body.renterId);
     });
   }
 };
-
 /**
  * 📋 Get All Rentals for an Owner
  * GET /api/rentals/owner/:ownerId
@@ -93,3 +131,32 @@ export const deleteRental = async (req, res) => {try {
   } catch (err) {
     res.status(500).json({ msg: 'Failed to delete rental', error: err });
   }};
+
+  // GET /api/rentals/all (admin only)
+export const getAllRentalsAdmin = async (req, res) => {
+  try {
+    const rentals = await Rental.find({})
+      .populate("productId", "title ownerId") // get product and its ownerId
+      .populate("renterId", "name email");    // get renter details
+    
+    // now we need to populate ownerId from product
+    const rentalsWithOwner = await Promise.all(
+      rentals.map(async (rental) => {
+        const product = await rental.populate({
+          path: "productId.ownerId",
+          select: "name email"
+        });
+        return product;
+      })
+    );
+
+    res.status(200).json({ success: true, rentals: rentalsWithOwner });
+  } catch (err) {
+    console.error("Fetching all rentals (admin) failed:", err);
+    res.status(500).json({ success: false, message: "Failed to fetch rentals", error: err.message });
+  }
+};
+
+
+
+

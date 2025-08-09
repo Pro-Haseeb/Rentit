@@ -8,8 +8,14 @@ import productRoutes from './routes/productRoute.js';
 import path from 'path';
 import RentRequest from './routes/rentRequest.js';
 import dashboardRoutes from './routes/dashboardRoutes.js';
+import adminRoute from './routes/adminRoute.js';
+import Tutorial from "./routes/tutorialRoute.js";
+import Contact from './routes/contactRoute.js';
 
 const app = express();
+import  "./schedulers/checkRental.js"; // Import the scheduler to ensure it runs
+
+
 
 app.use(cors());
 app.use(express.json());
@@ -36,6 +42,10 @@ app.use('/uploads', express.static(path.join('uploads'))); // Serve static files
 app.use('/api/products', productRoutes);
 app.use('/api/rentals', RentRequest);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/admin', adminRoute);
+app.use('/api/tutorial', Tutorial);
+app.use('/api/contact', Contact);
+
 
 
 const PORT = process.env.PORT || 5000;

@@ -1,9 +1,10 @@
 import express from 'express';
 import authMiddleware from '../middleware/authMiddleware.js';
-import { getDashboardSummary } from '../controllers/dashboardController.js';
+import { getDashboardSummary, AdminDashboard } from '../controllers/dashboardController.js';
 
 const router = express.Router();
 
-router.get('/summary',authMiddleware,  getDashboardSummary);
+router.get('/summary',authMiddleware.authMiddleware,  getDashboardSummary);
+router.get('/admin/stats', authMiddleware.authMiddleware, AdminDashboard);
 
 export default router;

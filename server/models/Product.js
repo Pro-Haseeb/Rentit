@@ -20,6 +20,11 @@ const productSchema = new mongoose.Schema({
   image: {
     type: String
   },
+  isBlocked: {
+  type: Boolean,
+  default: false,
+},
+
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
