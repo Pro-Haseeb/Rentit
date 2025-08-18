@@ -1,0 +1,86 @@
+.floating-contact-icon {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  background-color: #003b95;
+  color: white;
+  padding: 16px; /* Increased from 12px */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 9999;
+  transition: transform 0.2s;
+}
+
+.floating-contact-icon:hover {
+  transform: scale(1.1);
+}
+
+.contact-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-modal {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+.contact-modal h3 {
+  margin-bottom: 15px;
+  color: #003b95;
+  text-align: center;
+}
+
+.contact-modal input,
+.contact-modal textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.contact-modal textarea {
+  resize: none;
+  height: 100px;
+}
+
+.contact-modal button[type="submit"] {
+  background-color: #003b95;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.contact-modal button[type="submit"]:hover {
+  background-color: #002060;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+}

@@ -1,0 +1,88 @@
+/* Contactus.css */
+
+.contact-page-wrapper {
+  min-height: 100vh;
+  background: #ffffff; /* 🔄 White background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #003b95; /* 🔄 Primary blue for text */
+}
+
+.contact-page-wrapper h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #003b95;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #003b95;
+  padding-bottom: 10px;
+  text-shadow: none;
+}
+
+.contact-form {
+  background: rgba(0, 59, 149, 0.05); /* Light transparent blue */
+  padding: 30px 32px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease;
+}
+
+.contact-form:hover {
+  transform: translateY(-4px);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #333;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #999;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: #f8faff;
+  box-shadow: 0 0 0 2px #003b95;
+  border-color: #003b95;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 14px;
+  background-color: #003b95; /* 🔄 Blue button */
+  color: #ffffff; /* 🔄 White text */
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 18px rgba(0, 59, 149, 0.3);
+}
+
+.contact-form button:hover {
+  background-color: #002060;
+  transform: translateY(-2px);
+}

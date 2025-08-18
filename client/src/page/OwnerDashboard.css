@@ -1,0 +1,252 @@
+/* Updated Owner Dashboard Theme */
+
+.owner-dashboard {
+  padding: 20px;
+  background: #ffffff; /* Primary: White */
+  color: #003b95;       /* Secondary: Dark Blue Text */
+}
+
+.rental-card {
+  display: flex;
+  gap: 20px;
+  background: #f0f4ff; /* Light secondary-tint for card background */
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border-left: 5px solid #003b95; /* Secondary border */
+  color: #003b95;
+}
+
+.rental-card img {
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.rental-info {
+  flex: 1;
+}
+
+.status {
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status.pending {
+  background: orange;
+  color: #003b95;
+}
+.status.approved {
+  background: #003b95;
+  color: white;
+}
+.status.rejected {
+  background: red;
+  color: white;
+}
+
+.action-buttons button {
+  margin-right: 10px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.action-buttons button:first-child {
+  background: #003b95; /* Secondary */
+  color: white;
+}
+
+.action-buttons button:last-child {
+  background: red;
+  color: white;
+}
+
+.owner-dashboard h1,
+.owner-dashboard h2,
+.owner-dashboard h3 {
+  color: #003b95;
+}
+
+.rental-card:hover {
+  background: #e6efff;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(0, 59, 149, 0.2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: red;
+  cursor: pointer;
+}
+
+.rental-card {
+  position: relative;
+}
+
+.deadline-badge {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 4px 8px;
+  background-color: #ff5722;
+  color: white;
+  font-size: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+.rental-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.rental-table th,
+.rental-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
+  color: #003b95;
+  font-size: 14px;
+}
+
+/* Force consistent column widths */
+.rental-table th:nth-child(1),
+.rental-table td:nth-child(1) {
+  width: 80px;
+}
+
+.rental-table th:nth-child(2),
+.rental-table td:nth-child(2) {
+  width: 140px;
+}
+
+.rental-table th:nth-child(3),
+.rental-table td:nth-child(3) {
+  width: 180px;
+}
+
+.rental-table th:nth-child(4),
+.rental-table td:nth-child(4) {
+  width: 160px;
+}
+
+.rental-table th:nth-child(5),
+.rental-table td:nth-child(5) {
+  width: 200px;
+}
+
+.rental-table th:nth-child(6),
+.rental-table td:nth-child(6) {
+  width: 160px;
+}
+
+.rental-table th:nth-child(7),
+.rental-table td:nth-child(7) {
+  width: 100px;
+}
+
+.rental-table th:nth-child(8),
+.rental-table td:nth-child(8),
+.rental-table th:nth-child(9),
+.rental-table td:nth-child(9) {
+  width: 80px;
+}
+
+/* Image inside table */
+.rental-table img {
+  width: 60px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.deadline-warning {
+  color: orange;
+  font-weight: bold;
+  display: block;
+}
+
+.deadline-passed {
+  color: red;
+  font-weight: bold;
+  display: block;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin: 0 5px;
+  transition: transform 0.2s;
+}
+
+.icon-btn:hover {
+  transform: scale(1.2);
+}
+
+.deadline-warning {
+  display: block;
+  margin-top: 4px;
+  color: orange;
+  font-size: 0.9rem;
+}
+
+.deadline-passed {
+  display: block;
+  margin-top: 4px;
+  color: red;
+  font-size: 0.9rem;
+}
+
+

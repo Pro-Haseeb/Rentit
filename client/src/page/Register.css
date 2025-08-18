@@ -1,0 +1,7 @@
+/* src/components/Register.css */
+/* Same design as Login.css — reuse */
+
+@import './Login.css'; /* Reuse login styles */
+.cnic{
+    color: #003b95;
+}

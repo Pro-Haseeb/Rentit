@@ -1,0 +1,35 @@
+.privacy-policy {
+  padding: 40px;
+  background-color: White;
+  color: #003b95;
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.7;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.privacy-policy h1 {
+  font-size: 36px;
+  color: #003b95; /* Rentit.pk highlight green */
+  margin-bottom: 20px;
+}
+
+.privacy-policy h2 {
+  font-size: 24px;
+  margin-top: 30px;
+  color: #003b95;
+}
+
+.privacy-policy ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.privacy-policy li {
+  margin-bottom: 10px;
+}
+
+.privacy-policy p {
+  font-size: 16px;
+  margin-top: 15px;
+}

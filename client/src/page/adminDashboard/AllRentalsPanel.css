@@ -1,0 +1,78 @@
+.admin-rentals-container {
+  padding: 2rem;
+  background-color: white;
+  color: #003b95;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.admin-rentals-container h2 {
+  font-size: 26px;
+  margin-bottom: 1.5rem;
+  color: #003b95;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-rentals-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fefefe;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-rentals-table th,
+.admin-rentals-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-rentals-table th {
+  background-color: #003b95;
+  color: white;
+  font-weight: 600;
+}
+
+.admin-rentals-table tr:nth-child(even) {
+  background-color: #f7f9fb;
+}
+
+.admin-rentals-table tr:hover {
+  background-color: #eaf1fc;
+  transition: background-color 0.2s;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-badge.approved {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+@media (max-width: 768px) {
+  .admin-rentals-container {
+    padding: 1rem;
+  }
+
+  .admin-rentals-table th,
+  .admin-rentals-table td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .admin-rentals-container h2 {
+    font-size: 20px;
+  }
+}

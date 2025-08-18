@@ -1,0 +1,87 @@
+.about-page {
+  background-color: white;
+  color: #003b95;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.intro-hero, .about-hero {
+  background-color: #003b95;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  animation: fadeIn 1s ease-in;
+}
+
+.intro-hero h1,
+.about-hero h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.intro-hero p,
+.about-hero p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+.team-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+  animation: slideUp 0.8s ease-in-out;
+}
+
+.team-card {
+  width: 180px;
+  border: 2px solid #003b95;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background-color: white;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+}
+
+.team-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.team-name {
+  padding: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #003b95;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.team-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: white; /* ✅ White background */
+  color: #003b95; /* ✅ Text color */
+}

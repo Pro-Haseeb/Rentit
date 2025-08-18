@@ -1,0 +1,101 @@
+.multi-step-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0, 59, 149, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.form-heading {
+  text-align: center;
+  color: #003b95;
+  margin-bottom: 20px;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.step-indicator span {
+  width: 30px;
+  height: 30px;
+  background: #ccd6eb;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  color: #003b95;
+  transition: 0.3s;
+}
+
+.step-indicator .active {
+  background: #003b95;
+  color: #fff;
+}
+
+.step label {
+  display: block;
+  margin-bottom: 18px;
+  font-weight: 600;
+  color: #003b95;
+}
+
+.step input,
+.step select,
+.step textarea {
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 6px;
+  border-radius: 10px;
+  border: 1.5px solid #ccd6eb;
+  background-color: #f9fbff;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #003b95;
+  margin-top: 10px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.button-group button {
+  padding: 10px 20px;
+  font-weight: bold;
+  background: #003b95;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button-group button:hover {
+  background: #002b75;
+}
+
+.image-preview img {
+  width: 100%;
+  max-height: 250px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.note-warning {
+  color: #d80000;
+  background: #fff5f5;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
