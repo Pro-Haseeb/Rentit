@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import "./RentForm.css";
+import API from "../axiosConfig";
 
 const RentForm = ({ product, renterId, onClose }) => {
   const [startDate, setStartDate] = useState("");
@@ -39,7 +40,7 @@ console.log("CreatedBy._id:", product.createdBy?._id);
 console.log("RenterId (user._id):", renterId);
 
     try {
-      await axios.post(
+      await API.post(
         "http://localhost:5000/api/rentals",
         {
           productId: product._id,

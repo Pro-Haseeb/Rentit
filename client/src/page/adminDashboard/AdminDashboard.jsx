@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import './AdminDashboard.css';
+import API from "../axiosConfig";
 
 // 🔽 Import icons
 import { FaUsers, FaBoxOpen, FaShoppingCart, FaBan, FaHeadset } from 'react-icons/fa';
@@ -18,7 +19,7 @@ const AdminDashboard = () => {
       try {
         const token = JSON.parse(localStorage.getItem("user"))?.token;
 
-        const res = await axios.get('/api/dashboard/admin/stats', {
+        const res = await API.get('/api/dashboard/admin/stats', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setStats(res.data);

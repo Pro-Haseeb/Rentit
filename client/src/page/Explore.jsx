@@ -4,6 +4,7 @@ import './Explore.css';
 import { useLocation } from 'react-router-dom';
 import RentForm from './RentForm'; // ✅ Import RentForm
 import { useNavigate } from 'react-router-dom';
+import API from "../axiosConfig";
 
 
 const Explore = () => {
@@ -27,7 +28,7 @@ const Explore = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/products');
+        const res = await API.get('http://localhost:5000/api/products');
         setProducts(res.data.products);
         console.log(products);
       } catch (error) {

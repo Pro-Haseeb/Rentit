@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./AllProducts.css";
 import { FaTrash, FaBan, FaCheckCircle } from "react-icons/fa";
+import API from "../axiosConfig";
 
 const AdminAllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -12,7 +13,7 @@ const AdminAllProducts = () => {
   const fetchAllProducts = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("/api/products/", {
+      const res = await API.get("/api/products/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(res.data.products); // 👈 assuming backend sends { products: [...] }

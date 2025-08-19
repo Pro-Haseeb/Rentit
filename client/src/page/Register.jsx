@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Register.css'; // 📁 Styling file link
-
+import API from "../axiosConfig";
 const Register = () => {
   const [user, setUser] = useState({
     name: '',
@@ -43,7 +43,7 @@ const Register = () => {
     }
 
     try {
-      const res = await axios.post('/api/auth/register', formData, {
+      const res = await API.post('/api/auth/register', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

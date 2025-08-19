@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './AllRentalsPanel.css';
 import { FaUser, FaBoxOpen, FaCheckCircle } from 'react-icons/fa';
+import API from "../axiosConfig";
 
 const AdminAllRentals = () => {
   const [rentals, setRentals] = useState([]);
@@ -10,7 +11,7 @@ const AdminAllRentals = () => {
     const fetchRentals = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/rentals/all", {
+        const res = await API.get("http://localhost:5000/api/rentals/all", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

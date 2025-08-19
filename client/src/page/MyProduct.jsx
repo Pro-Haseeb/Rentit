@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './MyProduct.css';
-
+import API from "../axiosConfig";
 const MyProducts = () => {
   const [products, setProducts] = useState([]);
   const [editingProduct, setEditingProduct] = useState(null);
@@ -14,7 +14,7 @@ const MyProducts = () => {
   const fetchMyProducts = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:5000/api/products/my', {
+      const res = await API.get('http://localhost:5000/api/products/my', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(res.data.products);
@@ -39,7 +39,7 @@ const MyProducts = () => {
   const handleSave = async (productId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(
+      await API.put(
         `http://localhost:5000/api/products/update/${productId}`,
         editedData,
         {
@@ -60,7 +60,7 @@ const MyProducts = () => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/products/delete/${productId}`, {
+      await API.delete(`http://localhost:5000/api/products/delete/${productId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("✅ Product deleted");

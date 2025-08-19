@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './FeaturedListings.css';
+import API from "../axiosConfig";
 
 const OffersSection = () => {
   const [offers, setOffers] = useState([]);
@@ -10,7 +11,7 @@ const OffersSection = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/products/offers');
+        const res = await API.get('http://localhost:5000/api/products/offers');
         setOffers(res.data.products);
       } catch (err) {
         console.error('Error fetching offers:', err);

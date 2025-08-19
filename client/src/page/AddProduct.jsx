@@ -4,6 +4,8 @@ import Step2Pricing from './Step2Pricing';
 import Step3ImageUpload from './Step3ImageUpload';
 import './AddProduct.css';
 import axios from 'axios';
+import API from "../axiosConfig";
+
 
 const AddProduct = () => {
   const [step, setStep] = useState(1);
@@ -59,7 +61,7 @@ const AddProduct = () => {
 
     try {
       const token = JSON.parse(localStorage.getItem("user"))?.token;
-      await axios.post('http://localhost:5000/api/products', data, {
+      await API.post('http://localhost:5000/api/products', data, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'

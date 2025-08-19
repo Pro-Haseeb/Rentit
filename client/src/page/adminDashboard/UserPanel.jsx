@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './UserPanel.css'; // optional styling
+import API from "../axiosConfig";
 
 const UsersPanel = () => {
   const [users, setUsers] = useState([]);
@@ -9,7 +10,7 @@ const UsersPanel = () => {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:5000/api/admin/users', {
+      const res = await API.get('http://localhost:5000/api/admin/users', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -36,7 +37,7 @@ const UsersPanel = () => {
 
   const deleteUser = async (userId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/admin/users/${userId}`, {
+      await API.delete(`http://localhost:5000/api/admin/users/${userId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }

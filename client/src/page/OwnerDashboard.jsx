@@ -10,6 +10,7 @@ import {
   FaBan,
   FaClipboardList
 } from "react-icons/fa";
+import API from "../axiosConfig";
 
 const OwnerDashboard = () => {
   const [rentals, setRentals] = useState([]);
@@ -20,7 +21,7 @@ const OwnerDashboard = () => {
       try {
         const token = localStorage.getItem("token");
         const user = JSON.parse(localStorage.getItem("user"));
-        const res = await axios.get(`http://localhost:5000/api/rentals/owner/${user._id}`, {
+        const res = await API.get(`http://localhost:5000/api/rentals/owner/${user._id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -42,7 +43,7 @@ const OwnerDashboard = () => {
   const updateStatus = async (rentalId, status) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.put(
+      await API.put(
         `http://localhost:5000/api/rentals/${rentalId}/status`,
         { status },
         {

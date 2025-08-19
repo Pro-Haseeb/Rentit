@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './AdminContactus.css';
+import API from "../axiosConfig";
 
 const AdminContactMessages = () => {
   const [messages, setMessages] = useState([]);
@@ -10,7 +11,7 @@ const AdminContactMessages = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/contact');
+        const res = await API.get('http://localhost:5000/api/contact');
         setMessages(res.data);
       } catch (err) {
         console.error('Error fetching contact messages:', err);

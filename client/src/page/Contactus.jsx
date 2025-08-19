@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './Contactus.css';
 import axios from 'axios';
-
+import API from "../axiosConfig";
 const ContactUs = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [loading, setLoading] = useState(false);
@@ -16,7 +16,7 @@ const ContactUs = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(`/api/contact`, form);
+      const response = await API.post(`/api/contact`, form);
       console.log("✅ Contact Form Submitted:", response.data);
 
       alert("Message sent successfully!");

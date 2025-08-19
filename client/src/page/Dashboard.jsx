@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { FaTachometerAlt, FaUsers, FaBoxOpen, FaBan, FaCog } from "react-icons/fa";
 import {  FaClipboardList, FaShoppingCart } from "react-icons/fa";
 import axios from 'axios';
+import API from "../axiosConfig";
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -21,7 +22,7 @@ const Dashboard = () => {
     const fetchDashboardStats = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get('/api/dashboard/summary', {
+        const res = await API.get('/api/dashboard/summary', {
           headers: {
             Authorization: `Bearer ${token}`
           }

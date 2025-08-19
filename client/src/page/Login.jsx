@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
+import API from "../axiosConfig";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', {
+      const res = await API.post('http://localhost:5000/api/auth/login', {
         ...user,
         isAdminLogin: isAdminLogin
       });

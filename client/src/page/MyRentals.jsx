@@ -9,6 +9,8 @@ import {
 } from 'react-icons/fa';
 import './MyRental.css';
 
+import API from "../axiosConfig";
+
 const MyRentals = () => {
   const [rentals, setRentals] = useState([]);
 
@@ -16,7 +18,7 @@ const MyRentals = () => {
     const fetchMyRentals = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5000/api/rentals/my', {
+        const res = await API.get('http://localhost:5000/api/rentals/my', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
