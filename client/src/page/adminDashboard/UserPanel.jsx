@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './UserPanel.css'; // optional styling
-import API from "../axiosConfig";
+import API from "../../axiosConfig";
 
 const UsersPanel = () => {
   const [users, setUsers] = useState([]);
