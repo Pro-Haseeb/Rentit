@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./AllProducts.css";
 import { FaTrash, FaBan, FaCheckCircle } from "react-icons/fa";
-import API from "../../axiosConfig";
+import API from "../../AxiosConfig";
 
 const AdminAllProducts = () => {
   const [products, setProducts] = useState([]);

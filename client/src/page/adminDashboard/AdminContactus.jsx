@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './AdminContactus.css';
-import API from "../../axiosConfig";
+import API from "../../AxiosConfig";
 
 const AdminContactMessages = () => {
   const [messages, setMessages] = useState([]);
