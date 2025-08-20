@@ -12,8 +12,8 @@ const userSchema = new mongoose.Schema({
     enum: ['user', 'admin'],
     default: 'user'
   },cnicImage: {
-  type: String,
-  required: true
+  type: String
+  // required: true
 }
 ,
   isBlocked: {
