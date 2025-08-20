@@ -17,7 +17,10 @@ import  "./schedulers/checkRental.js"; // Import the scheduler to ensure it runs
 
 
 
-app.use(cors());
+app.use(cors({
+    origin : "https://rentit1.netlify.app/",
+    credentials : true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
