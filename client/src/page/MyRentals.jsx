@@ -18,7 +18,7 @@ const MyRentals = () => {
     const fetchMyRentals = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await API.get('http://localhost:5000/api/rentals/my', {
+        const res = await API.get('/api/rentals/my', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

@@ -10,7 +10,7 @@ const UsersPanel = () => {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await API.get('http://localhost:5000/api/admin/users', {
+      const res = await API.get('/api/admin/users', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -22,7 +22,7 @@ const UsersPanel = () => {
   };
 
   const toggleBlock = async (userId, isCurrentlyBlocked) => {
-    const url = `http://localhost:5000/api/admin/users/${isCurrentlyBlocked ? 'unblock' : 'block'}/${userId}`;
+    const url = `/api/admin/users/${isCurrentlyBlocked ? 'unblock' : 'block'}/${userId}`;
     try {
       await API.put(url, {}, {
         headers: {
@@ -37,7 +37,7 @@ const UsersPanel = () => {
 
   const deleteUser = async (userId) => {
     try {
-      await API.delete(`http://localhost:5000/api/admin/users/${userId}`, {
+      await API.delete(`/api/admin/users/${userId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }

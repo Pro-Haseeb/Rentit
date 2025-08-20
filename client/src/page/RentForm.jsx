@@ -41,7 +41,7 @@ console.log("RenterId (user._id):", renterId);
 
     try {
       await API.post(
-        "http://localhost:5000/api/rentals",
+        "/api/rentals",
         {
           productId: product._id,
           ownerId: product.createdBy?._id || product.createdBy, 

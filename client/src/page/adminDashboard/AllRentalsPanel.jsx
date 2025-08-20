@@ -11,7 +11,7 @@ const AdminAllRentals = () => {
     const fetchRentals = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await API.get("http://localhost:5000/api/rentals/all", {
+        const res = await API.get("/api/rentals/all", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

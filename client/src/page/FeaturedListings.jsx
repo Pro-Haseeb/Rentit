@@ -11,7 +11,7 @@ const OffersSection = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const res = await API.get('http://localhost:5000/api/products/offers');
+        const res = await API.get('/api/products/offers');
         setOffers(res.data.products);
       } catch (err) {
         console.error('Error fetching offers:', err);

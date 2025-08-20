@@ -28,7 +28,7 @@ const Explore = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await API.get('http://localhost:5000/api/products');
+        const res = await API.get('/api/products');
         setProducts(res.data.products);
         console.log(products);
       } catch (error) {

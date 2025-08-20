@@ -11,7 +11,7 @@ const AdminContactMessages = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const res = await API.get('http://localhost:5000/api/contact');
+        const res = await API.get('/api/contact');
         setMessages(res.data);
       } catch (err) {
         console.error('Error fetching contact messages:', err);

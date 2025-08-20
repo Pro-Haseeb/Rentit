@@ -61,7 +61,7 @@ const AddProduct = () => {
 
     try {
       const token = JSON.parse(localStorage.getItem("user"))?.token;
-      await API.post('http://localhost:5000/api/products', data, {
+      await API.post('/api/products', data, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'

@@ -14,7 +14,7 @@ const MyProducts = () => {
   const fetchMyProducts = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await API.get('http://localhost:5000/api/products/my', {
+      const res = await API.get('/api/products/my', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(res.data.products);
@@ -40,7 +40,7 @@ const MyProducts = () => {
     try {
       const token = localStorage.getItem('token');
       await API.put(
-        `http://localhost:5000/api/products/update/${productId}`,
+        `/api/products/update/${productId}`,
         editedData,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -60,7 +60,7 @@ const MyProducts = () => {
 
     try {
       const token = localStorage.getItem('token');
-      await API.delete(`http://localhost:5000/api/products/delete/${productId}`, {
+      await API.delete(`/api/products/delete/${productId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("✅ Product deleted");
