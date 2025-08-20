@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './UserPanel.css'; // optional styling
 import API from "../../axiosConfig";
 
@@ -24,7 +24,7 @@ const UsersPanel = () => {
   const toggleBlock = async (userId, isCurrentlyBlocked) => {
     const url = `http://localhost:5000/api/admin/users/${isCurrentlyBlocked ? 'unblock' : 'block'}/${userId}`;
     try {
-      await axios.put(url, {}, {
+      await API.put(url, {}, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }

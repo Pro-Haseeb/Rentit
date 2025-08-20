@@ -1,7 +1,7 @@
 // pages/ContactUsPage.jsx
 import React, { useState } from 'react';
 import './Contactus.css';
-import axios from 'axios';
+// import axios from 'axios';
 import API from "../axiosConfig";
 const ContactUs = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });

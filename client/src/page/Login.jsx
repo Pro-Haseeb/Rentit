@@ -1,6 +1,6 @@
 // src/components/Login.jsx
 import React, { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import API from "../axiosConfig";
@@ -13,7 +13,7 @@ const Login = () => {
   });
 
   const [isAdminLogin, setIsAdminLogin] = useState(false);
-  const [isShowModal, setIsShowModal] = useState(true);
+  // const [isShowModal, setIsShowModal] = useState(true);
 
   const handleChange = (e) => {
     setUser(prev => ({
@@ -65,12 +65,12 @@ const Login = () => {
 
   const handleAdminLoginClick = () => {
     setIsAdminLogin(true);
-    setIsShowModal(true);
+    // setIsShowModal(true);
   };
 
   const handleCloseModal = () => {
     setIsAdminLogin(false);
-    setIsShowModal(false);
+    // setIsShowModal(false);
   };
 
   return (

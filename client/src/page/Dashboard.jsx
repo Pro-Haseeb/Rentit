@@ -1,10 +1,10 @@
 // src/pages/Dashboard.jsx
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet, NavLink, useLocation } from 'react-router-dom';
+import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaTachometerAlt, FaUsers, FaBoxOpen, FaBan, FaCog } from "react-icons/fa";
+import { FaTachometerAlt, FaUsers, FaBoxOpen,  FaCog } from "react-icons/fa";
 import {  FaClipboardList, FaShoppingCart } from "react-icons/fa";
-import axios from 'axios';
+// import axios from 'axios';
 import API from "../axiosConfig";
 import './Dashboard.css';
 

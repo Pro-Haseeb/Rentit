@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import "./RentForm.css";
 import API from "../axiosConfig";
 

@@ -3,7 +3,7 @@ import Step1BasicInfo from './Step1BasicInfo';
 import Step2Pricing from './Step2Pricing';
 import Step3ImageUpload from './Step3ImageUpload';
 import './AddProduct.css';
-import axios from 'axios';
+// import axios from 'axios';
 import API from "../axiosConfig";
 
 

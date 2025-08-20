@@ -1,7 +1,7 @@
 // src/pages/AdminAllProducts.jsx
 
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import "./AllProducts.css";
 import { FaTrash, FaBan, FaCheckCircle } from "react-icons/fa";
 import API from "../../axiosConfig";
@@ -26,7 +26,7 @@ const AdminAllProducts = () => {
   const handleDelete = async (productId) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`/api/products/admin/${productId}`, {
+      await   API.delete(`/api/products/admin/${productId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchAllProducts(); // Refresh list after delete
@@ -39,7 +39,7 @@ const AdminAllProducts = () => {
   const handleToggleBlock = async (productId, currentStatus) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.patch(
+      await API.patch(
         `/api/products/admin/${productId}/block`,
         { blocked: !currentStatus },
         {
