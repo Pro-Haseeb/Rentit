@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './AllRentalsPanel.css';
 import { FaUser, FaBoxOpen, FaCheckCircle } from 'react-icons/fa';
-import API from "../../AxiosConfig";
+import API from "../../axiosConfig";
 
 const AdminAllRentals = () => {
   const [rentals, setRentals] = useState([]);

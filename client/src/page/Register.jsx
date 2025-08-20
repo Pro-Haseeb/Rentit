@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Register.css'; // 📁 Styling file link
-import API from "../AxiosConfig";
+import API from "../axiosConfig";
 const Register = () => {
   const [user, setUser] = useState({
     name: '',

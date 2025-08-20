@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import './AdminDashboard.css';
-import API from "../../AxiosConfig";
+import API from "../../axiosConfig";
 
 // 🔽 Import icons
 import { FaUsers, FaBoxOpen, FaShoppingCart, FaBan, FaHeadset } from 'react-icons/fa';
