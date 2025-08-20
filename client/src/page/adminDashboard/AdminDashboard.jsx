@@ -65,7 +65,7 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-        {/* Nested routes will appear here */}
+        {/* Nested routes will appear heree */}
         <Outlet />
       </div>
     </div>
