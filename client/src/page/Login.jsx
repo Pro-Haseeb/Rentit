@@ -26,7 +26,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await API.post('http://localhost:5000/api/auth/login', {
+      const res = await API.post('/api/auth/login', {
         ...user,
         isAdminLogin: isAdminLogin
       });
