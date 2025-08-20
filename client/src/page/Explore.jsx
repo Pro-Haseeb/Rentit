@@ -103,7 +103,7 @@ const Explore = () => {
           <div className="category-items">
             {(expandedCategories.includes(category) ? items : items.slice(0, 3)).map(product => (
               <div key={product._id} className="item-card">
-                <img src={product.image} alt={product.title} />
+                <img src={`${process.env.REACT_APP_API_URL}/uploads/${product.image}`} alt={product.name} />
                 <div className="item-info">
                   <h3>{product.title}</h3>
                   <p className="price">PKR {product.price}</p>
